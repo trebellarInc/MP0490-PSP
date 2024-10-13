@@ -14,6 +14,21 @@ package tarea_psp_01;
  */
 public class Colaborar {
     public static void main(String[] args) {
-        
+          Process nuevoProceso; //Definimos una variable de tipo Process
+        try{
+           
+            
+            
+                nuevoProceso = Runtime.getRuntime().exec("java "+
+                   "/Users/nacho/Documents/DAM-Chan_Monte-2425/PSP/git/MP0490-PSP/MP0490-PSP/src/tarea_psp_01/Lenguaje.java" + " 40 texto.txt");
+            
+            System.out.println("Fin.");
+        }catch (SecurityException ex){
+            System.out.println("Ha ocurrido un error de Seguridad."+
+                    "No se ha podido crear el proceso por falta de permisos.");
+        }catch (Exception ex){
+            System.out.println("Ha ocurrido un error, descripción: "+
+                    ex.toString());
+        }
     }
 }
