@@ -20,7 +20,6 @@ import java.util.Random;
 public class Lenguaje {
 
     public static void main(String[] args) {
-
         int numPalabras = 10;
         int tamanoPalabrasMax = 5;
         String nombreFichero;
@@ -36,13 +35,10 @@ public class Lenguaje {
                 System.out.println("El parametro numero de palabras tiene que se un numero");
             }
         }
-
         nombreFichero = args[1];
-
         for (int i = 0; i < numPalabras; i++) {
             escribirArchivo(palabra(tamanoPalabrasMax), nombreFichero);
         }
-
     }
 
     private static String palabra(int tamanoMax) {
@@ -52,7 +48,6 @@ public class Lenguaje {
         int tamano = aleatorio.nextInt(tamanoMax) + 1;
 
         for (int i = 0; i < tamano; i++) {
-
             if (aleatorio.nextInt(2) == 0) {
                 letra = (char) (aleatorio.nextInt(26) + 'a');
             } else {
@@ -60,24 +55,18 @@ public class Lenguaje {
             }
             palabra = palabra + letra;
         }
-        //System.out.println(palabra);
         return palabra;
     }
 
     private static void escribirArchivo(String palabra, String archivo) {
-
         System.out.println("Escribiendo la palabra \"" + palabra + "\" en el archivo -> " + archivo);
-
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(archivo, true));
 
             bw.write(palabra + "\n");
             bw.close();
-
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-
     }
-
 }
